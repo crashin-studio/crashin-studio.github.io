@@ -223,10 +223,46 @@
     }
 
     .badge-pulse { animation: pulse-orange 2s infinite; }
+
+    /* Page loader */
+    @keyframes loader-zoom-in-out {
+      0%, 100% { transform: scale(0.9); }
+      50% { transform: scale(1.08); }
+    }
+
+    .page-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--nb-bg);
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
+    }
+
+    .page-loader.is-hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .page-loader img {
+      width: 156px;
+      max-width: 44vw;
+      animation: loader-zoom-in-out 2s ease-in-out infinite;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
   </style>
 </head>
 
 <body class="bg-white text-brand-black" x-data="shop()" x-init="init()">
+  <div id="page-loader" class="page-loader" aria-label="Loading">
+    <img src="./img/logo-crashin-studio.png" alt="Loading Crash In Studio" />
+  </div>
 
   <!-- ═══════════════════════════════ HEADER ═══════════════════════════════ -->
   <header class="relative overflow-hidden">
@@ -261,6 +297,7 @@
         <template x-for="cat in categories" :key="cat.key">
           <button
             @click="activeCategory = cat.key"
+            data-hover-sound="true"
             :class="activeCategory === cat.key ? 'text-brand-orange border-b-2 border-brand-orange' : 'text-gray-500 hover:text-brand-orange border-b-2 border-transparent'"
             class="px-5 py-4 text-sm font-semibold whitespace-nowrap transition-colors duration-200"
             x-text="cat.label">
@@ -281,6 +318,7 @@
         <template x-for="cat in categories" :key="cat.key">
           <button
             @click="activeCategory = cat.key; open = false"
+            data-hover-sound="true"
             :class="activeCategory === cat.key ? 'bg-brand-orange text-white' : 'text-gray-600 hover:bg-orange-50'"
             class="w-full text-left px-4 py-2.5 rounded-none text-sm font-semibold transition-colors"
             x-text="cat.label">
@@ -354,18 +392,21 @@
               <div class="flex items-center gap-2">
                 <!-- Facebook -->
                 <a :href="shareFacebook(product)" target="_blank" rel="noopener"
+                   data-hover-sound="true"
                    class="share-icon text-gray-300 hover:text-blue-600 text-sm" title="Bagikan ke Facebook"
                    @click.stop>
                   <i class="fa-brands fa-facebook-f"></i>
                 </a>
                 <!-- WhatsApp -->
                 <a :href="shareWhatsapp(product)" target="_blank" rel="noopener"
+                   data-hover-sound="true"
                    class="share-icon text-gray-300 hover:text-green-500 text-sm" title="Bagikan ke WhatsApp"
                    @click.stop>
                   <i class="fa-brands fa-whatsapp"></i>
                 </a>
                 <!-- X/Twitter -->
                 <a :href="shareX(product)" target="_blank" rel="noopener"
+                   data-hover-sound="true"
                    class="share-icon text-gray-300 hover:text-black text-sm" title="Bagikan ke X"
                    @click.stop>
                   <i class="fa-brands fa-x-twitter"></i>
@@ -387,6 +428,7 @@
               <!-- Order button -->
               <button
                 @click.stop="orderWhatsapp(product)"
+                data-hover-sound="true"
                 class="flex items-center gap-1 bg-brand-orange hover:bg-brand-orange-dark text-white text-[10px] font-bold px-2.5 py-1.5 rounded-none transition-colors">
                 <i class="fa-brands fa-whatsapp text-xs"></i>
                 Pesan
@@ -418,17 +460,20 @@
 
       <!-- Social Links -->
       <div class="flex items-center justify-center gap-5 mb-8">
-        <a href="#" target="_blank" rel="noopener"
+        <a href="https://www.instagram.com/crashin.studio" target="_blank" rel="noopener"
+           data-hover-sound="true"
            class="w-10 h-10 rounded-none bg-white/5 hover:bg-brand-orange flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200 hover:scale-110"
            title="Instagram">
           <i class="fa-brands fa-instagram text-lg"></i>
         </a>
         <a href="#" target="_blank" rel="noopener"
+           data-hover-sound="true"
            class="w-10 h-10 rounded-none bg-white/5 hover:bg-brand-orange flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200 hover:scale-110"
            title="GitHub">
           <i class="fa-brands fa-github text-lg"></i>
         </a>
         <a href="#" target="_blank" rel="noopener"
+           data-hover-sound="true"
            class="w-10 h-10 rounded-none bg-white/5 hover:bg-brand-orange flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200 hover:scale-110"
            title="YouTube">
           <i class="fa-brands fa-youtube text-lg"></i>
@@ -448,6 +493,39 @@
       </div>
     </div>
   </footer>
+
+  <!-- ═══════════════════════════════ FLOATING ACTION BUTTONS ═══════════════════════════════ -->
+  <div class="fixed bottom-6 right-6 z-[60] flex flex-col items-center gap-3">
+    <a
+      :href="`https://wa.me/${waNumber}`"
+      target="_blank"
+      rel="noopener"
+      class="group relative w-12 h-12 rounded-full bg-brand-orange text-white border-2 border-brand-black shadow-[4px_4px_0_#111111] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0_#111111] transition-all duration-200 flex items-center justify-center"
+      title="Chat WhatsApp">
+      <i class="fa-brands fa-whatsapp text-xl"></i>
+      <span class="pointer-events-none absolute right-full mr-3 top-1/2 -translate-y-1/2 whitespace-nowrap bg-brand-black text-white text-[11px] px-2.5 py-1 rounded opacity-0 translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200">
+        Pesan atau konsultasi di WA
+      </span>
+    </a>
+
+    <button
+      @click="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      class="w-12 h-12 rounded-full bg-brand-black text-white border-2 border-brand-black shadow-[4px_4px_0_#111111] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0_#111111] transition-all duration-200 flex items-center justify-center"
+      title="Kembali ke atas">
+      <i class="fa-solid fa-arrow-up text-lg"></i>
+    </button>
+  </div>
+
+  <script>
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('page-loader');
+      if (!loader) return;
+
+      setTimeout(() => {
+        loader.classList.add('is-hidden');
+      }, 2000);
+    });
+  </script>
 
   <script>
     (() => {
@@ -492,8 +570,8 @@
       };
 
       document.addEventListener('pointerover', (event) => {
-        const hoveredLink = event.target.closest('a');
-        if (!hoveredLink) return;
+        const hoveredTarget = event.target.closest('[data-hover-sound="true"]');
+        if (!hoveredTarget) return;
         playHoverSound();
       });
     })();
