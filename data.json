@@ -83,24 +83,7 @@
       "category": "clothing",
       "image": "img/clothing/cargo-pants-utility.png",
       "phone": "+62 813-9005-7997"
-    },
-    {
-      "id": 9,
-      "name": "Digital Art Print A3",
-      "description": "Cetak karya digital art eksklusif ukuran A3 untuk dekorasi ruang kreatif.",
-      "price": 150000,
-      "category": "other",
-      "image": "img/other/digital-art-print-a3.png",
-      "phone": "+62 813-9005-7997"
-    },
-    {
-      "id": 10,
-      "name": "Tote Bag Canvas",
-      "description": "Tas kanvas limited edition dengan sablon manual khas Crash In Studio.",
-      "price": 95000,
-      "category": "other",
-      "image": "img/other/tote-bag-canvas.png",
-      "phone": "+62 813-9005-7997"
     }
+
   ]
 }
