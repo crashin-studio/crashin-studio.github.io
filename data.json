@@ -1,0 +1,106 @@
+{
+  "whatsapp": {
+    "phoneDisplay": "+62 813-9005-7997",
+    "phoneWa": "6281390057997"
+  },
+  "categories": [
+    { "key": "all", "label": "Home" },
+    { "key": "tshirt", "label": "T-Shirt" },
+    { "key": "sportwear", "label": "Sportwear" },
+    { "key": "unisex", "label": "Unisex Wear" },
+    { "key": "clothing", "label": "Clothing" },
+    { "key": "other", "label": "Other" }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Crash Tee Break Through",
+      "description": "Kaos premium 100% cotton combed 30s dengan desain grafis Break Through.",
+      "price": 185000,
+      "category": "tshirt",
+      "image": "img/t-shirt/t-shirt-break-through-everything.png",
+      "phone": "+62 813-9005-7997"
+    },
+    {
+      "id": 2,
+      "name": "Crash Tee Uncen 1",
+      "description": "T-shirt signature Crash In Studio dengan print Uncen 1 dan fit regular.",
+      "price": 195000,
+      "category": "tshirt",
+      "image": "img/t-shirt/t-shirt-uncen-1.png",
+      "phone": "+62 813-9005-7997"
+    },
+    {
+      "id": 3,
+      "name": "Sport Jersey V1",
+      "description": "Jersey activewear dry-fit untuk olahraga dan aktivitas outdoor.",
+      "price": 265000,
+      "category": "sportwear",
+      "image": "img/sportwear/sport-jersey-v1.png",
+      "phone": "+62 813-9005-7997"
+    },
+    {
+      "id": 4,
+      "name": "Sport Shorts Pro",
+      "description": "Celana pendek sport dengan bahan stretch yang nyaman dipakai harian.",
+      "price": 175000,
+      "category": "sportwear",
+      "image": "img/sportwear/sport-shorts-pro.png",
+      "phone": "+62 813-9005-7997"
+    },
+    {
+      "id": 5,
+      "name": "Unisex Hoodie Bold",
+      "description": "Hoodie unisex tebal fleece 320gsm dengan potongan modern.",
+      "price": 390000,
+      "category": "unisex",
+      "image": "img/unisex-wear/unisex-hoodie-bold.png",
+      "phone": "+62 813-9005-7997"
+    },
+    {
+      "id": 6,
+      "name": "Unisex Crewneck",
+      "description": "Crewneck clean minimal untuk pria dan wanita, cocok untuk outfit casual.",
+      "price": 310000,
+      "category": "unisex",
+      "image": "img/unisex-wear/unisex-crewneck.png",
+      "phone": "+62 813-9005-7997"
+    },
+    {
+      "id": 7,
+      "name": "Street Jacket Crash",
+      "description": "Jaket streetwear dengan zipper premium dan detail patch eksklusif.",
+      "price": 485000,
+      "category": "clothing",
+      "image": "img/clothing/street-jacket-crash.png",
+      "phone": "+62 813-9005-7997"
+    },
+    {
+      "id": 8,
+      "name": "Cargo Pants Utility",
+      "description": "Celana cargo multi-pocket dengan bahan ripstop untuk gaya urban.",
+      "price": 350000,
+      "category": "clothing",
+      "image": "img/clothing/cargo-pants-utility.png",
+      "phone": "+62 813-9005-7997"
+    },
+    {
+      "id": 9,
+      "name": "Digital Art Print A3",
+      "description": "Cetak karya digital art eksklusif ukuran A3 untuk dekorasi ruang kreatif.",
+      "price": 150000,
+      "category": "other",
+      "image": "img/other/digital-art-print-a3.png",
+      "phone": "+62 813-9005-7997"
+    },
+    {
+      "id": 10,
+      "name": "Tote Bag Canvas",
+      "description": "Tas kanvas limited edition dengan sablon manual khas Crash In Studio.",
+      "price": 95000,
+      "category": "other",
+      "image": "img/other/tote-bag-canvas.png",
+      "phone": "+62 813-9005-7997"
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crash In Studio | Digital Art & Clothing</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@500;700&display=swap');
+    
+    :root {
+        --orange-crash: #FF5722;
+        --yellow-brutal: #F4E04D;
+        --blue-brutal: #3352CC;
+    }
+
+    body {
+        font-family: 'Space Grotesk', sans-serif;
+        background-color: #f0f0f0;
+        /* Tekstur grain halus untuk kesan street/grunge */
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3仿真%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        background-blend-mode: overlay;
+        opacity: 0.98;
+    }
+
+    h1, h2, h3, .brutal-font {
+        font-family: 'Archivo Black', sans-serif;
+        text-transform: uppercase;
+    }
+
+    /* Utilitas Neo-Brutalism */
+    .brutal-border {
+        border: 4px solid #000;
+        box-shadow: 10px 10px 0px #000;
+        transition: all 0.15s ease;
+    }
+
+    .brutal-border:hover {
+        transform: translate(-4px, -4px);
+        box-shadow: 14px 14px 0px #000;
+    }
+
+    .brutal-btn {
+        border: 4px solid #000;
+        box-shadow: 5px 5px 0px #000;
+        transition: all 0.1s;
+        position: relative;
+    }
+
+    .brutal-btn:active {
+        transform: translate(5px, 5px);
+        box-shadow: 0px 0px 0px #000;
+    }
+
+    /* Gaya khusus untuk Map */
+    #map { 
+        height: 450px; 
+        border: 5px solid #000; 
+        box-shadow: 15px 15px 0px var(--orange-crash);
+    }
+
+    /* Custom Selection */
+    ::selection {
+        background: var(--orange-crash);
+        color: white;
+    }
+</style>
+
+<body class="p-4 md:p-8">
+
+    <nav class="max-w-7xl mx-auto mb-12 flex justify-between items-center bg-white brutal-border p-6">
+        <div class="text-3xl font-black italic tracking-tighter">
+            CRASH<span class="text-[var(--orange-crash)]">IN</span>
+        </div>
+        <div class="hidden md:flex gap-8 font-bold text-lg">
+            <a href="#" class="underline decoration-4 decoration-[var(--orange-crash)]">WORKS</a>
+            <a href="#" class="hover:line-through">CLOTHING</a>
+            <a href="#" class="hover:skew-x-12">STUDIO</a>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-6">
+        
+        <section class="md:col-span-8 brutal-border bg-[var(--yellow-brutal)] p-8 md:p-12">
+            <h2 class="text-5xl md:text-8xl leading-none mb-8">
+                ART IS <br>
+                <span class="bg-black text-white px-2 italic">NOT SAFE</span>
+            </h2>
+            <p class="text-xl md:text-2xl font-bold max-w-xl mb-8 border-l-4 border-black pl-4">
+                Crash In Studio: Titik temu antara kekacauan visual dan estetika streetwear.
+            </p>
+            <button class="brutal-btn bg-[var(--orange-crash)] text-white text-xl px-8 py-4 uppercase font-black">
+                Amankan Drop Terbaru <i class="fa-solid fa-arrow-right ml-2"></i>
+            </button>
+        </section>
+
+        <aside class="md:col-span-4 grid gap-6">
+            <div class="brutal-border bg-[var(--blue-brutal)] p-6 text-white">
+                <h3 class="text-2xl mb-2">Digital Art</h3>
+                <p>Custom illustration for your brand.</p>
+            </div>
+            <div class="brutal-border bg-white p-6">
+                <h3 class="text-2xl mb-4">Socials</h3>
+                <div class="flex gap-4 text-3xl">
+                    <i class="fa-brands fa-instagram hover:text-[var(--orange-crash)] cursor-pointer"></i>
+                    <i class="fa-brands fa-tiktok hover:text-[var(--orange-crash)] cursor-pointer"></i>
+                </div>
+            </div>
+        </aside>
+
+        <section class="md:col-span-12 mt-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="brutal-border bg-white p-6 flex flex-col justify-center">
+                    <h3 class="text-3xl mb-4">VISIT US</h3>
+                    <p class="font-bold">Jl. Protokol No. 10</p>
+                    <p class="font-bold">Jayapura, Papua</p>
+                    <p class="mt-4 italic">Buka setiap hari <br> 10:00 - 22:00 WIT</p>
+                </div>
+                <div class="md:col-span-2">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    </body>
+</html>
