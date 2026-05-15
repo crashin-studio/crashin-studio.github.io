@@ -14,15 +14,6 @@
   "products": [
     {
       "id": 1,
-      "name": "Crash Tee Break Through",
-      "description": "Kaos premium 100% cotton combed 30s dengan desain grafis Break Through.",
-      "price": 185000,
-      "category": "tshirt",
-      "image": "img/t-shirt/t-shirt-break-through-everything.png",
-      "phone": "+62 813-9005-7997"
-    },
-    {
-      "id": 2,
       "name": "Crash Tee Uncen 1",
       "description": "T-shirt signature Crash In Studio dengan print Uncen 1 dan fit regular.",
       "price": 195000,
@@ -31,30 +22,39 @@
       "phone": "+62 813-9005-7997"
     },
     {
+      "id": 2,
+      "name": "Cenderawasih 1962",
+      "description": "T-shirt signature Crash In Studio dengan print Uncen 1 dan fit regular.",
+      "price": 195000,
+      "category": "tshirt",
+      "image": "img/t-shirt/uncen-1962.jpg",
+      "phone": "+62 813-9005-7997"
+    },
+    {
       "id": 3,
-      "name": "Sport Jersey V1",
-      "description": "Jersey activewear dry-fit untuk olahraga dan aktivitas outdoor.",
-      "price": 265000,
-      "category": "sportwear",
-      "image": "img/sportwear/sport-jersey-v1.png",
+      "name": "Cenderawasih 1962",
+      "description": "T-shirt signature Crash In Studio dengan print Uncen 1 dan fit regular.",
+      "price": 195000,
+      "category": "tshirt",
+      "image": "img/t-shirt/cenderawasih-1962.jpg",
       "phone": "+62 813-9005-7997"
     },
     {
       "id": 4,
+      "name": "Crash Tee Break Through",
+      "description": "Kaos premium 100% cotton combed 30s dengan desain grafis Break Through.",
+      "price": 185000,
+      "category": "tshirt",
+      "image": "img/t-shirt/break-through-everything.webp",
+      "phone": "+62 813-9005-7997"
+    },
+    {
+      "id": 5,
       "name": "Sport Shorts Pro",
       "description": "Celana pendek sport dengan bahan stretch yang nyaman dipakai harian.",
       "price": 175000,
       "category": "sportwear",
       "image": "img/sportwear/sport-shorts-pro.png",
-      "phone": "+62 813-9005-7997"
-    },
-    {
-      "id": 5,
-      "name": "Unisex Hoodie Bold",
-      "description": "Hoodie unisex tebal fleece 320gsm dengan potongan modern.",
-      "price": 390000,
-      "category": "unisex",
-      "image": "img/unisex-wear/unisex-hoodie-bold.png",
       "phone": "+62 813-9005-7997"
     },
     {

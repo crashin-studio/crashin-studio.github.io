@@ -9,7 +9,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet" />
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -28,15 +28,15 @@
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: { jakarta: ['"Plus Jakarta Sans"', 'sans-serif'] },
+          fontFamily: { jakarta: ['"Montserrat"', 'sans-serif'] },
           colors: {
             brand: {
-              orange: '#F97316',
-              'orange-dark': '#EA580C',
-              'orange-light': '#FED7AA',
-              black: '#0A0A0A',
-              'gray-soft': '#F5F5F5',
-              'gray-border': '#E5E7EB',
+              orange: '#f05b29',
+              'orange-dark': '#f05b29',
+              'orange-light': '#f05b29',
+              black: '#111111',
+              'gray-soft': '#FFFDF4',
+              'gray-border': '#111111',
             }
           },
           animation: {
@@ -59,54 +59,177 @@
   </script>
 
   <style>
-    * { font-family: 'Plus Jakarta Sans', sans-serif; }
+    * {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+    }
+
+    :root {
+      --nb-bg: #FFF8DC;
+      --nb-paper: #FFFDF4;
+      --nb-ink: #111111;
+      --nb-pop: #f05b29;
+      --nb-pop-2: #5CE1E6;
+      --nb-accent: #FF4D9E;
+      --nb-shadow: #111111;
+    }
+
+    body {
+      background-color: var(--nb-bg);
+      background-image:
+        linear-gradient(0deg, rgba(17, 17, 17, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(17, 17, 17, 0.04) 1px, transparent 1px);
+      background-size: 26px 26px;
+      color: var(--nb-ink);
+    }
 
     /* Scrollbar */
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: #fff; }
-    ::-webkit-scrollbar-thumb { background: #F97316; border-radius: 0; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--nb-paper); }
+    ::-webkit-scrollbar-thumb {
+      background: var(--nb-ink);
+      border: 1px solid var(--nb-pop);
+      border-radius: 0;
+    }
+
+
+    header {
+      border-top: 0;
+      border-bottom: 0;
+      background-color: var(--nb-bg) !important;
+      background-image:
+        linear-gradient(0deg, rgba(17, 17, 17, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(17, 17, 17, 0.04) 1px, transparent 1px);
+      background-size: 26px 26px;
+    }
+
+    footer {
+      background-color: #111111 !important;
+      background-image:
+        linear-gradient(0deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+      background-size: 22px 22px;
+    }
+
+    nav {
+      border-top: 3px solid var(--nb-ink);
+      border-bottom: 3px solid var(--nb-ink) !important;
+      box-shadow: 0 6px 0 var(--nb-shadow);
+    }
+
+    nav button {
+      font-weight: 800 !important;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    nav [x-show="open"] button {
+      border: 3px solid var(--nb-ink);
+      box-shadow: 4px 4px 0 var(--nb-shadow);
+      margin-bottom: 6px;
+    }
 
     /* Nav active */
     .nav-link.active {
-      color: #F97316;
-      border-bottom: 2px solid #F97316;
+      color: var(--nb-ink);
+      border-bottom: 3px solid var(--nb-ink);
+      background: var(--nb-pop);
     }
 
-    /* Card hover */
-    .product-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
-    .product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(249,115,22,0.18); }
-
-    /* Share icon hover */
-    .share-icon { transition: color 0.2s, transform 0.2s; }
-    .share-icon:hover { transform: scale(1.2); }
-
-    /* Badge pulse */
-    @keyframes pulse-orange {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(249,115,22,0.5); }
-      50% { box-shadow: 0 0 0 6px rgba(249,115,22,0); }
-    }
-    .badge-pulse { animation: pulse-orange 2s infinite; }
-
-    /* Stripe pattern header accent */
     .stripe-accent {
       background: repeating-linear-gradient(
         -45deg,
-        transparent,
-        transparent 4px,
-        rgba(249,115,22,0.12) 4px,
-        rgba(249,115,22,0.12) 8px
+        var(--nb-pop),
+        var(--nb-pop) 10px,
+        var(--nb-ink) 10px,
+        var(--nb-ink) 20px
       );
     }
+
+    .product-card {
+      background: var(--nb-paper);
+      border: 3px solid var(--nb-ink) !important;
+      box-shadow: 7px 7px 0 var(--nb-shadow);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .product-card:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: 11px 11px 0 var(--nb-shadow);
+    }
+
+    .product-card .absolute.top-2.left-2 {
+      border: 2px solid var(--nb-ink);
+      box-shadow: 3px 3px 0 var(--nb-shadow);
+    }
+
+    .product-card .p-3 h3 {
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .product-card .p-3 p {
+      color: #2F2F2F;
+    }
+
+    .share-icon {
+      color: var(--nb-ink) !important;
+      border: 2px solid var(--nb-ink);
+      width: 26px;
+      height: 26px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #FFFFFF;
+      box-shadow: 2px 2px 0 var(--nb-shadow);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease;
+    }
+
+    .share-icon:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 4px 0 var(--nb-shadow);
+      background: var(--nb-pop);
+    }
+
+    button[class*='bg-brand-orange'] {
+      border: 2px solid var(--nb-ink);
+      box-shadow: 3px 3px 0 var(--nb-shadow);
+      transform: translate(0, 0);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease;
+    }
+
+    button[class*='bg-brand-orange']:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0 var(--nb-shadow);
+    }
+
+    footer .w-10.h-10 {
+      border: 3px solid var(--nb-pop);
+      box-shadow: 4px 4px 0 var(--nb-shadow);
+      background: #111111 !important;
+      color: var(--nb-pop) !important;
+    }
+
+    footer .w-10.h-10:hover {
+      background: #1A1A1A !important;
+      color: var(--nb-pop) !important;
+      transform: translate(-2px, -2px) scale(1.05) !important;
+    }
+
+    /* Badge pulse */
+    @keyframes pulse-orange {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(240, 91, 41, 0.6); }
+      50% { box-shadow: 0 0 0 7px rgba(240, 91, 41, 0); }
+    }
+
+    .badge-pulse { animation: pulse-orange 2s infinite; }
   </style>
 </head>
 
 <body class="bg-white text-brand-black" x-data="shop()" x-init="init()">
 
   <!-- ═══════════════════════════════ HEADER ═══════════════════════════════ -->
-  <header class="relative bg-brand-black overflow-hidden">
-
-    <!-- stripe texture top bar -->
-    <div class="stripe-accent h-1 w-full"></div>
+  <header class="relative overflow-hidden">
 
     <!-- decorative orange ring -->
     <div class="absolute -top-16 -right-16 w-64 h-64 rounded-none border-[32px] border-brand-orange opacity-10 pointer-events-none"></div>
@@ -116,19 +239,17 @@
 
       <!-- Logo -->
       <div class="flex items-center justify-center mb-2">
-        <img src="./img/logo-crashin-studio.png" alt="Crash In Studio" class="h-64 md:h-64 w-auto" />
+        <img src="./img/logo-crashin-studio.png" alt="Crash In Studio" class="h-64 w-auto" />
       </div>
 
-      <p class="text-brand-orange-light text-sm font-medium tracking-widest uppercase mb-1">
+      <p class="text-brand-orange text-sm font-medium tracking-widest uppercase mb-1">
         Digital Art &amp; Clothing
       </p>
-      <p class="text-gray-400 text-sm max-w-md mx-auto leading-relaxed">
+      <p class="text-gray-700 text-sm max-w-md mx-auto leading-relaxed">
         Ekspresikan dirimu lewat koleksi streetwear eksklusif &amp; karya seni digital yang bold.
       </p>
     </div>
 
-    <!-- stripe texture bottom bar -->
-    <div class="stripe-accent h-1 w-full"></div>
   </header>
 
   <!-- ═══════════════════════════════ NAV ═══════════════════════════════ -->
@@ -189,7 +310,7 @@
           @click="orderWhatsapp(product)">
 
           <!-- Image -->
-          <div class="relative overflow-hidden bg-brand-gray-soft aspect-square">
+          <div class="relative overflow-hidden bg-brand-gray-soft aspect-[4/5]">
             <template x-if="product.image && !imageErrors[product.id]">
               <img
                 :src="product.image"
@@ -285,13 +406,12 @@
 
   <!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
   <footer class="bg-brand-black mt-16">
-    <div class="stripe-accent h-1 w-full"></div>
 
     <div class="max-w-6xl mx-auto px-4 py-10 text-center">
 
       <!-- Brand -->
       <div class="flex items-center justify-center mb-3">
-        <img src="./img/logo-crashin-studio.png" alt="Crash In Studio" class="h-12 w-auto" />
+        <img src="./img/logo-crashin-studio.png" alt="Crash In Studio" class="h-20 w-auto" />
       </div>
 
       <p class="text-gray-500 text-xs mb-6 max-w-xs mx-auto">Digital Art & Clothing – Bold by design.</p>
@@ -316,7 +436,7 @@
       </div>
 
       <!-- Divider -->
-      <div class="border-t border-white/10 pt-6">
+      <div class="pt-6">
         <p class="text-gray-500 text-xs">
           &copy; <span x-text="new Date().getFullYear()"></span> Crash In Studio. All rights reserved.
         </p>
@@ -328,6 +448,56 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (() => {
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContextClass) return;
+
+      const audioContext = new AudioContextClass();
+      let lastPlayedAt = 0;
+
+      const unlockAudio = () => {
+        if (audioContext.state === 'suspended') {
+          audioContext.resume();
+        }
+      };
+
+      window.addEventListener('pointerdown', unlockAudio, { once: true });
+      window.addEventListener('keydown', unlockAudio, { once: true });
+
+      const playHoverSound = () => {
+        const now = performance.now();
+        if (now - lastPlayedAt < 80) return;
+        lastPlayedAt = now;
+
+        unlockAudio();
+
+        const oscillator = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+        const startTime = audioContext.currentTime;
+
+        oscillator.type = 'triangle';
+        oscillator.frequency.setValueAtTime(920, startTime);
+        oscillator.frequency.exponentialRampToValueAtTime(700, startTime + 0.07);
+
+        gain.gain.setValueAtTime(0.0001, startTime);
+        gain.gain.exponentialRampToValueAtTime(0.05, startTime + 0.01);
+        gain.gain.exponentialRampToValueAtTime(0.0001, startTime + 0.1);
+
+        oscillator.connect(gain);
+        gain.connect(audioContext.destination);
+        oscillator.start(startTime);
+        oscillator.stop(startTime + 0.11);
+      };
+
+      document.addEventListener('pointerover', (event) => {
+        const hoveredLink = event.target.closest('a');
+        if (!hoveredLink) return;
+        playHoverSound();
+      });
+    })();
+  </script>
 
   <!-- ═══════════════════════════════ ALPINE JS APP ═══════════════════════════════ -->
   <script>
