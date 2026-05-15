@@ -50,20 +50,20 @@
     },
     {
       "id": 5,
-      "name": "Sport Shorts Pro",
-      "description": "Celana pendek sport dengan bahan stretch yang nyaman dipakai harian.",
+      "name": "Hoodie Crash in",
+      "description": "Hoodie warna hitam dan gunakan logo Crash In, bisa diubah sesuai keinginnan",
       "price": 175000,
-      "category": "sportwear",
-      "image": "img/sportwear/sport-shorts-pro.png",
+      "category": "clothing",
+      "image": "img/hoodie/hoodie-1.png",
       "phone": "+62 813-9005-7997"
     },
     {
       "id": 6,
-      "name": "Unisex Crewneck",
-      "description": "Crewneck clean minimal untuk pria dan wanita, cocok untuk outfit casual.",
+      "name": "Jacket Nokensoft",
+      "description": "Jacket warna silver dengan Logo Brand Nokensoft dan website www.nokensoft.com.",
       "price": 310000,
-      "category": "unisex",
-      "image": "img/unisex-wear/unisex-crewneck.png",
+      "category": "clothing",
+      "image": "img/jacket/jacket-nokensoft.png",
       "phone": "+62 813-9005-7997"
     },
     {
