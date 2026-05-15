@@ -588,6 +588,7 @@
     <div class="max-w-6xl mx-auto px-4 pb-10">
       <div class="border-[3px] border-brand-orange shadow-[6px_6px_0_#111111] overflow-hidden">
         <iframe
+          id="soundcloud-player"
           title="Playlist SoundCloud Prama"
           width="100%"
           height="166"
@@ -598,6 +599,35 @@
       </div>
     </div>
   </section>
+  <script src="https://w.soundcloud.com/player/api.js"></script>
+  <script>
+    (() => {
+      const iframe = document.getElementById('soundcloud-player');
+      if (!iframe || !window.SC || !window.SC.Widget) return;
+
+      const widget = window.SC.Widget(iframe);
+
+      const forcePlay = () => {
+        widget.play();
+      };
+
+      widget.bind(window.SC.Widget.Events.READY, () => {
+        forcePlay();
+      });
+
+      widget.bind(window.SC.Widget.Events.FINISH, () => {
+        widget.seekTo(0);
+        forcePlay();
+      });
+
+      const unlockAndPlay = () => {
+        forcePlay();
+      };
+
+      window.addEventListener('pointerdown', unlockAndPlay, { once: true });
+      window.addEventListener('keydown', unlockAndPlay, { once: true });
+    })();
+  </script>
 
   <!-- ═══════════════════════════════ FLOATING ACTION BUTTONS ═══════════════════════════════ -->
   <div class="fixed bottom-6 right-6 z-[60] flex flex-col items-center gap-3">
